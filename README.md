@@ -37,7 +37,7 @@ It allows users to search for any city and view real-time weather conditions usi
 2. Install dependencies (if using npm/webpack):
       ```bash
        npm install
-       ```
+      ```
 3. Create a free account at [WeatherAPI](https://www.weatherapi.com/) and get your API key.
 
 4. Inside your source file (e.g., getweather.js), replace:
