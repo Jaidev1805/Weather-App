@@ -27,9 +27,6 @@ It allows users to search for any city and view real-time weather conditions usi
 
 ---
 
-
----
-
 ## ⚙️ Installation & Usage
 
 1. Clone the repository:
