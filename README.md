@@ -30,20 +30,21 @@ It allows users to search for any city and view real-time weather conditions usi
 ## ⚙️ Installation & Usage
 
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/weather-app.git
-   cd weather-app
-   ```
+      ```bash
+      git clone https://github.com/your-username/weather-app.git
+      cd weather-app
+      ```
 2. Install dependencies (if using npm/webpack):
-    ```bash
-    npm install
-    ```
-3.Create a free account at [WeatherAPI](https://www.weatherapi.com/) and get your API key.
-4.Inside your source file (e.g., getweather.js), replace:
-  ```bash
-  const apiKey = "YOUR_API_KEY";
-  ```
-5.Run the app:
-  ```bash
-  npm start
-  ```
+      ```bash
+       npm install
+       ```
+3. Create a free account at [WeatherAPI](https://www.weatherapi.com/) and get your API key.
+
+4. Inside your source file (e.g., getweather.js), replace:
+     ```bash
+     const apiKey = "YOUR_API_KEY";
+     ```
+5. Run the app:
+     ```bash
+     npm start
+     ```
