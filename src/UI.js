@@ -64,46 +64,41 @@ export async function UIgenerate(city,container) {
     let hour = parseInt(data.location.localtime.split(" ")[1].split(":")[0]);
     const temp = Number(data.current.temp_c);
 
-    if( temp < 25){
-      if(hour >= 6 && hour < 18){
-        document.body.style.backgroundColor = "#708090";
-        document.body.style.color = "white";
-        weatherDiv.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-        weatherDiv.style.boxShadow = "0 2px 4px rgba(255, 255, 255, 0.1)";
-      }
-      else{
-        document.body.style.backgroundColor = "#2A3B47";
-        document.body.style.color = "white";
-        weatherDiv.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-        weatherDiv.style.boxShadow = "0 2px 4px rgba(255, 255, 255, 0.1)";
-      }
+    let bgColor;
+    let textColor;
+    let shadowColor;
+
+    if (temp < 25) {
+        if (hour >= 6 && hour < 18) {
+            bgColor = "#708090";
+            textColor = "white";
+        } else {
+            bgColor = "#2A3B47";
+            textColor = "white";
+        }
+    } else {
+        if (hour >= 6 && hour < 12) {
+            bgColor = "#FFF7CC";
+            textColor = "black";
+        } else if (hour >= 12 && hour < 18) {
+            bgColor = "#FFD580";
+            textColor = "black";
+        } else {
+            bgColor = "#001f3f";
+            textColor = "white";
+        }
     }
-    else {
-      if (hour >= 6 && hour < 12){
-        document.body.style.backgroundColor = "#FFF7CC";
-        document.body.style.color = "black";
-        weatherDiv.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-        weatherDiv.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
-      }       
-      else if (hour >= 12 && hour < 18){
-        document.body.style.backgroundColor = "#FFD580";
-        document.body.style.color = "black";
-        weatherDiv.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-        weatherDiv.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
-      }
-      else if (hour >= 18 && hour < 20){
-        document.body.style.backgroundColor = "#FFB347";
-        document.body.style.color = "black";
-        weatherDiv.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-        weatherDiv.style.boxShadow = "0 2px 4px rgba(0, 0, 0, 0.1)";
-      } 
-      else {
-        document.body.style.backgroundColor = "#001f3f";                                
-        document.body.style.color = "white";
-        weatherDiv.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
-        weatherDiv.style.boxShadow = "0 2px 4px rgba(255, 255, 255, 0.1)";
-      }
+
+    if (textColor === 'white') {
+        shadowColor = "rgba(255, 255, 255, 0.1)";
+    } else {
+        shadowColor = "rgba(0, 0, 0, 0.1)";
     }
+
+    document.body.style.backgroundColor = bgColor;
+    document.body.style.color = textColor;
+    weatherDiv.style.backgroundColor = "rgba(0, 0, 0, 0.05)";
+    weatherDiv.style.boxShadow = `0 2px 4px ${shadowColor}`;
 
   } catch (error) {
     weatherDiv.innerHTML = `Error fetching weather data. Please try again later.`;    console.error("Error fetching weather data:", error);    console.error("UIgenerate error:", error);
